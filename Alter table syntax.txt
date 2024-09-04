@@ -1,0 +1,3 @@
+Alter table syntax
+ 
+ALTER TABLE demo ADD COLUMN no int(3) PRIMARY KEY FIRST;

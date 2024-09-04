@@ -1,0 +1,22 @@
+
+1===SELECT * FROM p pname WHERE pcity="london"; 
+2===SELECT pname ,MAX(weight) FROM p; 
+3===SELECT * FROM p WHERE color="red"; 
+4===SELECT s.sname,s.s_city from s,sp where s.sno=sp.sno and sp.qty>200; 
+5===SELECT * from p WHERE weight=(SELECT MAX(weight) from p WHERE weight<(SELECT MAX(weight)from p)); 
+5===SELECT p.weight FROM p ORDER BY weight DESC LIMIT 1 OFFSET 1; 
+
+
+
+advance query
+SELECT p.pno,sp.qty from p,sp where p.pno=sp.pno and p.pcity="paris"; 
+SELECT p.weight as "seond highest" FROM p ORDER BY weight DESC LIMIT 1 OFFSET 1; 
+6====SELECT s.sno,sp.qty from s,sp,p where s.sno=sp.sno ORDER BY weight LIMIT 1; 
+
+
+6===SELECT sp.sno,sp.qty from p,sp WHERE p.pno=sp.pno and p.weight=(SELECT max(weight) from p); 
+7===SELECT s.sname,sp.qty from sp,s,p where s.sno=sp.sno and p.pno=sp.pno and p.color='red'; 
+8==SELECT s.sname,p.pcity,sp.qty from s,p,sp where s.sno=sp.sno and p.pno=sp.pno and s.s_status<30; 
+9===SELECT sp.sno,sum(sp.qty) from sp GROUP by(sp.sno); 
+10==SELECT sp.pno,sum(sp.qty) from sp GROUP by(sp.pno); 
+11==SELECT p.pname,sum(sp.qty) from p,sp where p.pno=sp.pno GROUP by(sp.pno); 
